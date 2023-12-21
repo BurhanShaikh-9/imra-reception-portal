@@ -62,11 +62,11 @@ export const Sidebar = () => {
 
                     <ul className="sidebar-nav" id="sidebar-nav">
 
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link  collapsed" activeclassname="active" to={ROUTES.DASHBOARD}>
                                 <RxDashboard className='sideIcon' /><span>Dashboard</span>
                             </NavLink>
-                        </li>
+                        </li> */}
 
                         <li className="nav-item">
                             <NavLink className="nav-link  collapsed" activeclassname="active" to={ROUTES.RECEPTIONIST}>
