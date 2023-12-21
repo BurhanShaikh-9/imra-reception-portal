@@ -1167,7 +1167,8 @@ body:has(.login) {
   margin-bottom: 5px;
 }
 .login .card .card-body .loginOuter .loginBody .fields input[type=email],
-.login .card .card-body .loginOuter .loginBody .fields input[type=password] {
+.login .card .card-body .loginOuter .loginBody .fields input[type=password],
+.login .card .card-body .loginOuter .loginBody .fields input[type=text] {
   width: 100%;
   height: 33px;
   border: 1px solid grey;
@@ -1294,6 +1295,16 @@ body:has(.login) {
   text-decoration: none;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .loadingComponent {
   width: 100%;
   display: flex;
@@ -1335,4 +1346,15 @@ body:has(.login) {
 
 .marginBottomFields {
   margin-bottom: 15px;
+}
+
+.fieldButtonRelative {
+  position: relative;
+}
+
+.fieldButtonAbsolute {
+  position: absolute !important;
+  right: 10px;
+  bottom: 6px;
+  cursor: pointer;
 }/*# sourceMappingURL=App.css.map */

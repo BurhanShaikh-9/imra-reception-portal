@@ -6,8 +6,13 @@ import AuthService from '../../../services/auth.service';
 import { UserService } from '../../../services/user';
 import { AdminService } from '../../../services/admin';
 import { ROUTES } from '../../../../utils/routes';
+import { ToastContainer, toast } from 'react-toastify';
+import { FaRegEye,FaRegEyeSlash } from "react-icons/fa";
+// import { FaRegEyeSlash } from "react-icons/fa";
 
 export const Login = () => {
+
+    const [isPass, setIsPass] = useState(false)
 
     const { getSingleAdmin } = AdminService()
     const { postAdminLogin, successLogin } = AuthService();
@@ -28,6 +33,7 @@ export const Login = () => {
 
         postAdminLogin(loginData).then((res) => {
             console.log(res, 'resssss');
+            toast.success('Successfully Signed In')
             const loginResponse = res
             getSingleAdmin(res?.data.reception._id).then((res) => {
                 const response = res?.data?.reception
@@ -59,12 +65,12 @@ export const Login = () => {
                 } else {
                     // navigate(ROUTES.DASHBOARD);
                     console.log(routeMapping.dashboard, 'dashhh');
-                    successLogin(loginResponse?.data, null , otherRoutes = 0)
-
+                    successLogin(loginResponse?.data, null, otherRoutes = 0)
                 }
 
             })
         }).catch((err) => {
+            toast.error('Invalid Credentials')
             console.log(err, 'error');
         })
 
@@ -72,6 +78,18 @@ export const Login = () => {
     return (
         <React.Fragment>
             <div className="login">
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
                 <div className='bg_element_1'></div>
                 <div className='bg_element_2'></div>
                 <div className="card cardBodyRelative">
@@ -89,11 +107,20 @@ export const Login = () => {
                                         onChange={getInput}
                                     />
                                 </div>
-                                <div className="fields">
+                                <div className="fields fieldButtonRelative">
                                     <label htmlFor="passwordLogin">Password</label>
-                                    <input type="password" name='password'
+                                    <input type={isPass ? 'text' : 'password'} name='password'
                                         onChange={getInput}
                                     />
+                                    <div className='fieldButtonAbsolute' onClick={(e) => { setIsPass(!isPass); e.preventDefault() }}>
+                                        {
+                                            isPass ?
+                                                <FaRegEye />
+                                                :
+                                                <FaRegEyeSlash />
+                                        }
+
+                                    </div>
                                 </div>
                                 {/* <div className="fields fields1">
                                     <div className='loginCheckBox'>
