@@ -25,6 +25,7 @@ import { Receptionist } from '../Website/pages/receptionist/receptionist'
 import { AddHistory } from '../Website/pages/medicalHistory/addHistory'
 import { ManageHistory } from '../Website/pages/medicalHistory/manageHistory'
 import { UpdateHistory } from '../Website/pages/medicalHistory/updateReceptionist'
+import { AllDoctor } from '../Website/pages/doctor/doctor'
 
 export const ExternalRoutes = () => {
 
@@ -51,6 +52,7 @@ export const ExternalRoutes = () => {
                 <Route path={ROUTES.RECEPTIONIST} element={<Receptionist />} />
                 <Route path={ROUTES.ADD_HISTORY} element={<AddHistory />} />
                 <Route path={ROUTES.MANAGE_HISTORY} element={<ManageHistory />} />
+                <Route path={ROUTES.ALL_DOCTOR} element={<AllDoctor />} />
                 <Route path={`${ROUTES.UPDATE_HISTORY}/:userId`} element={<UpdateHistory />} />
                 <Route path={ROUTES.FAQS} element={<Faqs />} />
                 <Route path={ROUTES.PROFILE} element={<Profile />} />

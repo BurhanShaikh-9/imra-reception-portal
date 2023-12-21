@@ -14,8 +14,10 @@ import { MdOutlineAdminPanelSettings, MdOutlineManageAccounts } from 'react-icon
 import { FiUsers } from 'react-icons/fi'
 import { FaUserNurse } from 'react-icons/fa'
 import { FaUserDoctor } from "react-icons/fa6";
+// import { FaUserDoctor } from "react-icons/fa6";
 import { ROUTES } from '../../../utils/routes';
 import TokenService from '../../services/tokenService';
+
 import { AdminService } from '../../services/admin';
 import { LiaNotesMedicalSolid, LiaBriefcaseMedicalSolid } from "react-icons/lia";
 import { IoIosLogOut } from "react-icons/io";
@@ -71,6 +73,11 @@ export const Sidebar = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link  collapsed" activeclassname="active" to={ROUTES.RECEPTIONIST}>
                                 <FaUserNurse className='sideIcon' /><span>Receptionist </span>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link  collapsed" activeclassname="active" to={ROUTES.ALL_DOCTOR}>
+                                <FaUserDoctor className='sideIcon' /><span>Doctors </span>
                             </NavLink>
                         </li>
 

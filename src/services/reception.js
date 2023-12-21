@@ -10,9 +10,12 @@ export const ReceptionistService = () => {
   const getUserAllDetails = (id) => {
     return axiosInstance.get(`${baseUrl}/medical-history/${id}`);
   }
+  const getSingleReception = (id) => {
+    return axiosInstance.get(`${baseUrl}/single-reception/${id}`);
+  }
   const postMedicalHistory = (data) => {
     return axiosInstance.post(`${baseUrl}/create-medicalhistory`, data);
   }
 
-  return { getUserAllDetails, postMedicalHistory }
+  return { getUserAllDetails, postMedicalHistory, getSingleReception }
 }
