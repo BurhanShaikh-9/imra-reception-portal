@@ -4,12 +4,14 @@ import { AdminService } from '../../../services/admin'
 import TokenService from '../../../services/tokenService';
 import { toast } from 'react-toastify';
 import Loader from '../../components/loader';
+import { phoneValidation } from '../../../services/regex';
 
 export const Profile = () => {
 
     const { getSingleAdmin, patchAdmin } = AdminService();
     const { getUserCookie } = TokenService();
     const [isLoading, setIsLoading] = useState(false);
+    const [isValidPhone, setIsValidPhone] = useState(true);
 
     let userId = getUserCookie()
     const [userObject, setUserObject] = useState({});
@@ -29,10 +31,28 @@ export const Profile = () => {
 
 
 
+    // const getInput = (e) => {
+    //     const fieldValue = e.target.value;
+    //     const fieldName = e.target.name;
+    //     setUserObject({ ...userObject, [fieldName]: fieldValue });
+    // };
+    const validatePhone = (phone) => {
+        return phoneValidation.test(phone);
+    };
+
     const getInput = (e) => {
         const fieldValue = e.target.value;
         const fieldName = e.target.name;
-        setUserObject({ ...userObject, [fieldName]: fieldValue });
+        if (fieldName === 'phonenumber') {
+            const isValid = validatePhone(fieldValue);
+            // console.log(fieldValue,isValidPhone,'vallll');
+            setIsValidPhone(isValid);
+            if (isValid) {
+                setUserObject({ ...userObject, [fieldName]: fieldValue });
+            }
+        } else {
+            setUserObject({ ...userObject, [fieldName]: fieldValue });
+        }
     };
 
     const getImageInput = (e) => {
@@ -122,7 +142,7 @@ export const Profile = () => {
                                                 <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
                                                     <div className="fields">
                                                         <label htmlFor="doctorName">Name</label>
-                                                        <input type="text" onChange={getInput} id="doctorName" name="name" placeholder={userObject. name}
+                                                        <input type="text" onChange={getInput} id="doctorName" name="name" placeholder={userObject.name}
                                                         />
                                                     </div>
                                                 </div>
@@ -134,10 +154,12 @@ export const Profile = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-                                                    <div className="fields">
+                                                    <div className="fields fieldErrorRelative">
                                                         <label htmlFor="doctorName">Phone</label>
-                                                        <input type="number" onChange={getInput} id="doctorName" name="phonenumber" placeholder={userObject.phonenumber}
+                                                        <input className={!isValidPhone && 'errorValidation'} type="number" id="doctorName" name="phonenumber" placeholder={userObject.phonenumber}
+                                                            onChange={getInput}
                                                         />
+                                                        {!isValidPhone && <p className='erroValidationText'>Invalid Phone Number</p>}
                                                     </div>
                                                 </div>
                                                 <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
@@ -158,7 +180,7 @@ export const Profile = () => {
 
                                                 <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
                                                     <div className="fields">
-                                                        <button type="Submit" >
+                                                        <button type="Submit" disabled={!isValidPhone} >
                                                             Submit
                                                         </button>
                                                     </div>
