@@ -129,6 +129,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Doctor Name</label>
                                                         <input type="text" id="doctorName" name="doctor_name" placeholder="Enter Doctor Name..."
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -137,6 +138,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Note</label>
                                                         <input type="text" id="doctorName" name="reason" placeholder="Enter Note..."
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -145,6 +147,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Disease</label>
                                                         <input type="text" id="doctorName" name="dieases" placeholder="Enter Disease"
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -153,6 +156,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Prescription</label>
                                                         <input type="text" id="doctorName" name="prescribed" placeholder="Enter Prescription..."
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -161,6 +165,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Test</label>
                                                         <input type="text" id="doctorName" name="test" placeholder='Enter Test...'
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -169,6 +174,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Procedure</label>
                                                         <input type="text" id="doctorName" name="procedure" placeholder="Enter Procedure..."
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -177,6 +183,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Fees</label>
                                                         <input type="number" id="doctorName" name="fees" placeholder="Enter Fees..."
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -185,6 +192,7 @@ export const UpdateHistory = () => {
                                                         <label htmlFor="doctorName">Medical Center</label>
                                                         <input type="text" id="doctorName" name="medCenter" placeholder="Enter Medical Center..."
                                                             onChange={onChangeDoctor}
+                                                            required
                                                         />
                                                     </div>
                                                 </div>

@@ -27,8 +27,9 @@ export const AllDoctor = () => {
 
     const fetchData = () => {
         getSingleReception(hospitalId).then((res) => {
+            console.log('res', res.data);
             const hospitalIdRes = res?.data?.reception?.hospitalId
-            console.log(res.data.reception.hospitalId, 'response');
+            console.log(res.data.reception.hospitalId, 'responseIddd');
             getAllDoctor(hospitalIdRes).then((res) => {
                 setData(res?.data?.doctors)
                 console.log(res?.data?.doctors, 'responseee')
