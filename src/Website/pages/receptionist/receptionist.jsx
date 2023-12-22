@@ -186,8 +186,12 @@ export const Receptionist = () => {
                                                                                     <div key={keyId}>
                                                                                         <span className='userTitle'>
                                                                                             Fees :
-                                                                                        </span> <span>
+                                                                                        </span>
+                                                                                        <span>
                                                                                             {item.fees}
+                                                                                        </span>
+                                                                                        <span>
+                                                                                            PKR
                                                                                         </span>
                                                                                     </div>
                                                                                     <div key={keyId}>
