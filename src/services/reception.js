@@ -8,7 +8,7 @@ export const ReceptionistService = () => {
   const { axiosInstance } = AxiosSettings()
 
   const getUserAllDetails = (id) => {
-    return axiosInstance.get(`${baseUrl}/medical-history/${id}`);
+    return axiosInstance.get(`${baseUrl}/all-medical-history/${id}`);
   }
   const getSingleReception = (id) => {
     return axiosInstance.get(`${baseUrl}/single-reception/${id}`);
