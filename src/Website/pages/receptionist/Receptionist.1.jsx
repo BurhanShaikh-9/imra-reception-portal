@@ -29,7 +29,7 @@ export const Receptionist = () => {
             setIsShowDetails(true);
             getUserAllDetails(response._id).then((res) => {
                 const userResponse = res.data.data;
-                console.log(res.data, 'ersaaa');
+
                 setUserDetails(userResponse);
                 // console.log(userResponse, 'userResponse')
                 toast.success('User Found');
