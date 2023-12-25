@@ -7,9 +7,12 @@ export const DashboardService = () => {
     const { baseUrl } = Base();
     const { axiosInstance } = AxiosSettings()
    
-    const getDashboardData = () =>{
-        return axiosInstance.get(`${baseUrl}/dishboard`);
+    const getSearchCount = (id) =>{
+        return axiosInstance.get(`${baseUrl}/search-reception/${id}`);
+    }
+    const getCountRecep = (id) =>{
+        return axiosInstance.get(`${baseUrl}/count-reception/${id}`);
     }
    
-  return {getDashboardData}
+  return {getCountRecep, getSearchCount}
 }
